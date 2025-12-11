@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import TopPageHeader from "../../components/business/TopPageHeader";
 import ProductsList from "../../components/business/ProductsList";
 import VacanciesBlock from "../../components/business/VacanciesBlock";
+import AdvantagesBlock from "../../components/business/AdvantagesBlock";
+import SkillsBlock from "../../components/business/SkillsBlock";
 
 export async function generateStaticParams() {
   let params: { type: string; alias: string }[] = [];
@@ -78,6 +80,8 @@ export default async function CoursePage({
       <TopPageHeader page={page} products={products} />
       <ProductsList products={products} />
       {firstCategoryItem.id === TopLevelCategory.Courses && <VacanciesBlock page={page} />}
+      <AdvantagesBlock advantages={page.advantages} />
+      <SkillsBlock skills={page.tags} />
     </div>
   );
 }
