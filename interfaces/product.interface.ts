@@ -17,6 +17,7 @@ export interface ProductModel {
   reviewCount: number;
   reviewAvg?: number;
   advantages: string[];
+  disadvantages: string[];
 }
 
 export interface ProductCharacteristic {
