@@ -1,7 +1,7 @@
 import { API } from "@/api";
 import { firstLevelMenu } from "@/helpers/helpers";
 import { MenuItem } from "@/interfaces/menu.interface";
-import { TopLevelCategory, TopPageModal } from "@/interfaces/page.interface";
+import { TopPageModal } from "@/interfaces/page.interface";
 import { ProductModel } from "@/interfaces/product.interface";
 import { notFound } from "next/navigation";
 import TopPageClient from "./TopPageClient";

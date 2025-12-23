@@ -5,6 +5,7 @@ import "./layout.css";
 import Sidebar from "../../components/layouts/Sidebar";
 import Header from "../../components/layouts/Header";
 import Footer from "../../components/layouts/Footer";
+import Up from "@/components/UI/Up";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function SiteLayout({
         <Sidebar className="sidebar" />
         <main className="main">{children}</main>
         <Footer className="footer" />
+        <Up />
       </div>
     </div>
   );
