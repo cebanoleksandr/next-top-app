@@ -5,6 +5,7 @@ import { ChevronUpIcon } from "@heroicons/react/16/solid";
 import { useAnimation } from "framer-motion";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import ButtonIcon from "./ButtonIcon";
 
 const Up = () => {
   const controls = useAnimation();
@@ -31,7 +32,7 @@ const Up = () => {
       animate={controls}
       initial={{ opacity: 0, pointerEvents: 'none' }}
     >
-      <ChevronUpIcon className="size-7 text-white" />
+      <ButtonIcon icon="up" onClick={scrollToTop} />
     </motion.div>
   );
 };
