@@ -20,9 +20,10 @@ export interface IReviewForm {
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   productId: string;
+  isOpen: boolean;
 }
 
-const ReviewForm: FC<IProps> = ({ productId, className, ...rest }) => {
+const ReviewForm: FC<IProps> = ({ productId, className, isOpen, ...rest }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string>();
   const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
@@ -55,6 +56,7 @@ const ReviewForm: FC<IProps> = ({ productId, className, ...rest }) => {
           { ...register('name', { required: { value: true, message: 'Заполните имя' } }) } 
           placeholder="Имя"
           error={errors.name}
+          tabIndex={isOpen ? 0 : -1}
         />
 
         <Input
@@ -62,14 +64,15 @@ const ReviewForm: FC<IProps> = ({ productId, className, ...rest }) => {
           placeholder="Заголовок отзыва"
           { ...register('title', { required: { value: true, message: 'Заполните заголовок' }}) }
           error={errors.title}
+          tabIndex={isOpen ? 0 : -1}
         />
 
-        <div className="review-form-rating flex items-center gap-5">
-          <span className={cn({ "text-red-500": !!errors.rating })}>Оценка</span>
+        <div className="relative review-form-rating flex items-center gap-5">
+          <span className={cn({ "text-red-500": errors.rating })}>Оценка</span>
           <Controller
             control={control}
+            rules={{ required: { value: true, message: 'Поставьте оценку' } }}
             name="rating"
-            rules={{ required: { value: true, message: 'Поставьте рейтинг' } }}
             render={({ field }) => (
               <Rating
                 rating={field.value}
@@ -77,6 +80,7 @@ const ReviewForm: FC<IProps> = ({ productId, className, ...rest }) => {
                 setRating={field.onChange}
                 ref={field.ref}
                 error={errors.rating}
+                tabIndex={isOpen ? 0 : -1}
               />
             )}
           />
@@ -87,10 +91,11 @@ const ReviewForm: FC<IProps> = ({ productId, className, ...rest }) => {
           placeholder="Текст отзыва"
           { ...register('description', { required: { value: true, message: 'Заполните описание' }}) }
           error={errors.description}
+          tabIndex={isOpen ? 0 : -1}
         />
 
         <div className="review-form-submit">
-          <Button mode="primary">
+          <Button mode="primary" tabIndex={isOpen ? 0 : -1} type="submit">
             Отправить
           </Button>
 
