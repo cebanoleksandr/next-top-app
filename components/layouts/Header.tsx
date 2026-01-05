@@ -5,7 +5,6 @@ import { FC, HTMLAttributes, useState } from "react";
 import logo from "../../public/logo.svg";
 import Image from "next/image";
 import ButtonIcon from "../UI/ButtonIcon";
-import "./Header.css";
 import { AnimatePresence } from "framer-motion";
 import MobileMenu from "./MobileMenu";
 
@@ -15,7 +14,7 @@ const Header: FC<IProps> = ({ className,...props }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className={cn("header", className)} {...props}>
+    <header className={cn("flex justify-between items-center", className)} {...props}>
       <Image src={logo} className="mt-7 ml-1.5" alt="" />
       <ButtonIcon icon="menu" onClick={() => setIsMenuOpen(true)} mode="white" className="mt-8" />
 
