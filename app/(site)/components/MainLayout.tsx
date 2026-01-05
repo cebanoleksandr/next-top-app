@@ -8,7 +8,6 @@ import Sidebar from "@/components/layouts/Sidebar";
 import Content from "./Content";
 import Footer from "@/components/layouts/Footer";
 import Up from "@/components/UI/Up";
-import "../layout.css";
 
 interface IMainLayout {
   children: React.ReactNode;
