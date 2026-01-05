@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import cn from "classnames";
 import { HTMLMotionProps, motion } from "framer-motion";
 

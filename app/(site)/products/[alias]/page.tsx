@@ -7,6 +7,19 @@ export async function generateStaticParams() {
   return menu.flatMap((item: any) => item.pages.map((page: any) => ({ alias: page.alias })));
 }
 
+export async function generateMetadata({ params }: { params: { alias: string } }) {
+  const page = await getPage(params.alias);
+
+  if (!page) {
+    return {};
+  }
+
+  return {
+    title: page.title,
+    description: page.description,
+  };
+}
+
 const ProductsPage = async({ params }: { params: { alias: string } }) => {
   const page = await getPage(params.alias);
 
