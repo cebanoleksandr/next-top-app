@@ -6,6 +6,14 @@ import { ProductModel } from "@/interfaces/product.interface";
 import { notFound } from "next/navigation";
 import TopPageClient from "./TopPageClient";
 
+// 1. Визначаємо правильний тип для Next.js 15
+interface PageProps {
+  params: Promise<{ 
+    type: string; 
+    alias: string; 
+  }>;
+}
+
 export async function generateStaticParams() {
   let params: { type: string; alias: string }[] = [];
 
@@ -29,11 +37,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function CoursePage({
-  params,
-}: {
-  params: Promise<{ type: string; alias: string }>;
-}) {
+// 2. Використовуємо інтерфейс PageProps і робимо await params
+export default async function CoursePage({ params }: PageProps) {
   const { type, alias } = await params;
 
   const firstCategoryItem = firstLevelMenu.find(m => m.route === type);
