@@ -1,0 +1,8 @@
+version: "27"
+services:
+  app:
+    image: top-app
+    container_name: top-app
+    restart: always
+    ports:
+    - 3001:3001
