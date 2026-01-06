@@ -29,8 +29,12 @@ export async function generateStaticParams() {
   return params;
 }
 
-export default async function CoursePage({ params }: { params: { type: string; alias: string } }) {
-  const { type, alias } = params;
+export default async function CoursePage({
+  params,
+}: {
+  params: Promise<{ type: string; alias: string }>;
+}) {
+  const { type, alias } = await params;
 
   const firstCategoryItem = firstLevelMenu.find(m => m.route === type);
   if (!firstCategoryItem) notFound();
