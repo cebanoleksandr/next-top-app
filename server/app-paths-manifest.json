@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/search/page": "app/(site)/search/page.js",
+  "/(site)/products/[alias]/page": "app/(site)/products/[alias]/page.js",
+  "/(site)/[type]/[alias]/page": "app/(site)/[type]/[alias]/page.js",
+  "/(site)/[type]/page": "app/(site)/[type]/page.js"
+}
